@@ -29,9 +29,13 @@ class zakupki_creation_page:
             clean_title = column_title.strip()
 
             column_locator = header_row.locator(f'th[title*="{clean_title}"]').first
+            expect(column_locator).to_be_visible()
+
 
             
         total_cell = self.page.get_by_role("row", name="Итого:", exact=False).get_by_text("Итого").first
+        expect(total_cell).to_be_visible()
+
 
     def field_filler(self):
         self.field_podrazdelenie_initiator.click()
